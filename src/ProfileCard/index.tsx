@@ -12,16 +12,16 @@ const ProfileCard = ({ name, age, imageUrl }: Props) => {
     }
 
     return (
-        <View style={styles.container}>
+        <TouchableOpacity onPress={handleOnPressBtn} style={styles.container}>
             {imageUrl && <Image style={styles.imageContainer} source={{ uri: imageUrl }} />}
             <View style={styles.subContainer}>
                 <Text style={styles.textContainer}>NAME:{name}</Text>
                 <Text style={styles.textContainer}>AGE:{age}</Text>
             </View>
-            <TouchableOpacity onPress={handleOnPressBtn} style={styles.buttonContainer}>
+            <View style={styles.buttonContainer}>
                 <Text style={styles.buttonTextContainer}>REACT NATIVE</Text>
-            </TouchableOpacity>
-        </View>
+            </View>
+        </TouchableOpacity>
     )
 }
 
