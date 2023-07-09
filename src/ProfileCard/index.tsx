@@ -1,11 +1,16 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { Alert, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { PersonalInfo } from '../App';
 
 
 type Props = PersonalInfo;
 
 const ProfileCard = ({ name, age, imageUrl }: Props) => {
+
+    const handleOnPressBtn = () => {
+        Alert.alert(`Hi ${name}! Welcome to React Native Course`);
+    }
+
     return (
         <View style={styles.container}>
             {imageUrl && <Image style={styles.imageContainer} source={{ uri: imageUrl }} />}
@@ -13,9 +18,9 @@ const ProfileCard = ({ name, age, imageUrl }: Props) => {
                 <Text style={styles.textContainer}>NAME:{name}</Text>
                 <Text style={styles.textContainer}>AGE:{age}</Text>
             </View>
-            <View style={styles.buttonContainer}>
+            <TouchableOpacity onPress={handleOnPressBtn} style={styles.buttonContainer}>
                 <Text style={styles.buttonTextContainer}>REACT NATIVE</Text>
-            </View>
+            </TouchableOpacity>
         </View>
     )
 }
